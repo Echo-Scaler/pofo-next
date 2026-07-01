@@ -1,15 +1,15 @@
-import { FC, memo } from 'react';
+import {FC, memo} from 'react';
 
-import { useLanguage } from '../../../context/LanguageContext';
-import { SectionId, useData } from '../../../data/data';
+import {useLanguage} from '../../../context/LanguageContext';
+import {SectionId, useData} from '../../../data/data';
 import Section from '../../Layout/Section';
 import ResumeSection from './ResumeSection';
-import { SkillGroup } from './Skills';
+import {SkillGroup} from './Skills';
 import TimelineItem from './TimelineItem';
 
 const Resume: FC = memo(() => {
-  const { education, experience, skills } = useData();
-  const { language } = useLanguage();
+  const {education, experience, skills} = useData();
+  const {language} = useLanguage();
   return (
     <Section className="bg-neutral-100" sectionId={SectionId.Resume}>
       <div className="flex flex-col divide-y-2 divide-neutral-300">

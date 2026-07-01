@@ -1,19 +1,19 @@
 import classNames from 'classnames';
-import Image, { StaticImageData } from 'next/image';
-import { FC, memo, MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
+import Image, {StaticImageData} from 'next/image';
+import {FC, memo, MouseEvent, useCallback, useEffect, useRef, useState} from 'react';
 
-import { isMobile } from '../../config';
-import { useLanguage } from '../../context/LanguageContext';
-import { SectionId, useData } from '../../data/data';
-import { PortfolioItem } from '../../data/dataDef';
+import {isMobile} from '../../config';
+import {useLanguage} from '../../context/LanguageContext';
+import {SectionId, useData} from '../../data/data';
+import {PortfolioItem} from '../../data/dataDef';
 import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
 import ImageModal from '../ImageModal';
 import Section from '../Layout/Section';
 
 const Portfolio: FC = memo(() => {
-  const { portfolioItems } = useData();
-  const { language } = useLanguage();
-  const [modalData, setModalData] = useState<{ src: string | StaticImageData; alt: string } | null>(null);
+  const {portfolioItems} = useData();
+  const {language} = useLanguage();
+  const [modalData, setModalData] = useState<{src: string | StaticImageData; alt: string} | null>(null);
 
   const handleCloseModal = useCallback(() => {
     setModalData(null);
@@ -34,7 +34,7 @@ const Portfolio: FC = memo(() => {
         </div>
         <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-6">
           {portfolioItems.slice(0, 5).map((item, index) => {
-            const { title, image } = item;
+            const {title, image} = item;
             return (
               <div
                 className={classNames(
@@ -47,7 +47,7 @@ const Portfolio: FC = memo(() => {
                   'cursor-pointer',
                 )}
                 key={`${title}-${index}`}
-                onClick={() => setModalData({ src: image, alt: title })}>
+                onClick={() => setModalData({src: image, alt: title})}>
                 <Image
                   alt={title}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -73,7 +73,7 @@ const Portfolio: FC = memo(() => {
 Portfolio.displayName = 'Portfolio';
 export default Portfolio;
 
-const ItemOverlay: FC<{ item: PortfolioItem }> = memo(({ item: { title, description } }) => {
+const ItemOverlay: FC<{item: PortfolioItem}> = memo(({item: {title, description}}) => {
   const [mobile, setMobile] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
   const linkRef = useRef<HTMLDivElement>(null);
@@ -101,7 +101,7 @@ const ItemOverlay: FC<{ item: PortfolioItem }> = memo(({ item: { title, descript
     <div
       className={classNames(
         'absolute inset-0 flex h-full w-full flex-col justify-end bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 transition-all duration-300 backdrop-blur-[2px]',
-        { 'opacity-0 hover:opacity-100': !mobile },
+        {'opacity-0 hover:opacity-100': !mobile},
         showOverlay ? 'opacity-100' : 'opacity-0',
       )}
       onClick={handleItemClick}

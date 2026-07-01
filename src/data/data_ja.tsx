@@ -42,7 +42,7 @@ import {
  */
 export const homePageMeta: HomepageMeta = {
   title: "K.Wai Yan's Portfolio",
-  description: "K.Wai Yan - Full Stack Developer",
+  description: 'K.Wai Yan - Full Stack Developer',
 };
 
 /**
@@ -103,12 +103,12 @@ export const aboutData: About = {
   profileImageSrc: profilepic,
   description: `PHP (Laravel)、Java、MySQL、React、Next.js を用いた、スケーラブルで保守性の高い Web アプリケーションの構築を専門としています。クリーンで高品質なコードの記述、継続的な技術習得、そしてテクノロジーを通じてビジネス上の課題を解決することに情熱を注いでいます。`,
   aboutItems: [
-    { label: '所在地', text: '千葉県', Icon: MapIcon },
-    { label: '年齢', text: '31歳', Icon: CalendarIcon },
-    { label: '国籍', text: 'ミャンマー', Icon: FlagIcon },
-    { label: '趣味', text: 'サッカー、UFC観戦、読書', Icon: SparklesIcon },
-    { label: '学歴', text: 'ヤンゴン大学', Icon: AcademicCapIcon },
-    { label: '所属', text: '株式会社アウトワード', Icon: BuildingOffice2Icon },
+    {label: '所在地', text: '千葉県', Icon: MapIcon},
+    {label: '年齢', text: '31歳', Icon: CalendarIcon},
+    {label: '国籍', text: 'ミャンマー', Icon: FlagIcon},
+    {label: '趣味', text: 'サッカー、UFC観戦、読書', Icon: SparklesIcon},
+    {label: '学歴', text: 'ヤンゴン大学', Icon: AcademicCapIcon},
+    {label: '所属', text: '株式会社アウトワード', Icon: BuildingOffice2Icon},
   ],
 };
 

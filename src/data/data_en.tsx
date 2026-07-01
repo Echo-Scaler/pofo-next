@@ -42,7 +42,7 @@ import {
  */
 export const homePageMeta: HomepageMeta = {
   title: "K.Wai Yan's Portfolio",
-  description: "K.Wai Yan - Full Stack Developer",
+  description: 'K.Wai Yan - Full Stack Developer',
 };
 
 /**
@@ -102,12 +102,12 @@ export const aboutData: About = {
   profileImageSrc: profilepic,
   description: `I build scalable and maintainable web applications using PHP (Laravel), Java, MySQL, React, and Next.js. Passionate about clean code, continuous learning, and solving real-world business challenges through technology.`,
   aboutItems: [
-    { label: 'Location', text: 'Japan, Chiba', Icon: MapIcon },
-    { label: 'Age', text: '31', Icon: CalendarIcon },
-    { label: 'Nationality', text: 'Myanmar', Icon: FlagIcon },
-    { label: 'Interests', text: 'Football, UFC, Reading', Icon: SparklesIcon },
-    { label: 'Study', text: 'University of Yangon', Icon: AcademicCapIcon },
-    { label: 'Employment', text: 'Outward, Inc.', Icon: BuildingOffice2Icon },
+    {label: 'Location', text: 'Japan, Chiba', Icon: MapIcon},
+    {label: 'Age', text: '31', Icon: CalendarIcon},
+    {label: 'Nationality', text: 'Myanmar', Icon: FlagIcon},
+    {label: 'Interests', text: 'Football, UFC, Reading', Icon: SparklesIcon},
+    {label: 'Study', text: 'University of Yangon', Icon: AcademicCapIcon},
+    {label: 'Employment', text: 'Outward, Inc.', Icon: BuildingOffice2Icon},
   ],
 };
 

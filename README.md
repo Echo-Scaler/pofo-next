@@ -69,7 +69,6 @@ Deploying your new site to Vercel is simple, and can be done by following their 
 ## Project Created & Maintained By
 
 
-
 ## Stargazers
 
 [![Stargazers repo roster for @tbakerx/react-resume-template](https://reporoster.com/stars/dark/tbakerx/react-resume-template)](https://github.com/tbakerx/react-resume-template/stargazers)
