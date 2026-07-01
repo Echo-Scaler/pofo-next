@@ -1,15 +1,15 @@
-import {FC, memo} from 'react';
+import { FC, memo } from 'react';
 
-import {useLanguage} from '../../../context/LanguageContext';
-import {SectionId, useData} from '../../../data/data';
+import { useLanguage } from '../../../context/LanguageContext';
+import { SectionId, useData } from '../../../data/data';
 import Section from '../../Layout/Section';
 import ResumeSection from './ResumeSection';
-import {SkillGroup} from './Skills';
+import { SkillGroup } from './Skills';
 import TimelineItem from './TimelineItem';
 
 const Resume: FC = memo(() => {
-  const {education, experience, skills} = useData();
-  const {language} = useLanguage();
+  const { education, experience, skills } = useData();
+  const { language } = useLanguage();
   return (
     <Section className="bg-neutral-100" sectionId={SectionId.Resume}>
       <div className="flex flex-col divide-y-2 divide-neutral-300">
@@ -26,8 +26,8 @@ const Resume: FC = memo(() => {
         <ResumeSection title={language === 'ja' ? 'スキル' : 'Skills'}>
           <p className="pb-8">
             {language === 'ja'
-              ? '習得している技術スタックおよびスキルの一覧です。'
-              : 'Here you can show a snapshot of your skills to show off to employers'}
+              ? 'このセクションでは、私の技術スキルと経験を紹介しています。'
+              : 'This section showcases my technical skills and experience.'}
           </p>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {skills.map((skillgroup, index) => (
