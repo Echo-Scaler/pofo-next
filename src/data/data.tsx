@@ -8,12 +8,11 @@ import {
   SparklesIcon,
 } from '@heroicons/react/24/outline';
 
-import InstagramIcon from '../components/Icon/InstagramIcon';
-import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
-import TwitterIcon from '../components/Icon/TwitterIcon';
+import blogImage1 from '../images/blog/blog-1.png';
+import blogImage2 from '../images/blog/blog-2.png';
+import blogImage3 from '../images/blog/blog-3.png';
 import heroImage from '../images/header-background.webp';
-import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
+import porfolioImage1 from '../images/portfolio/miura-custom.png';
 import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
 import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
 import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
@@ -27,6 +26,7 @@ import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profilepic.jpg';
 import {
   About,
+  BlogSection,
   ContactSection,
   ContactType,
   Hero,
@@ -34,7 +34,6 @@ import {
   PortfolioItem,
   SkillGroup,
   Social,
-  BlogSection,
   TimelineItem,
 } from './dataDef';
 
@@ -43,7 +42,7 @@ import {
  */
 export const homePageMeta: HomepageMeta = {
   title: 'React Resume Template',
-  description: "Example site built with Tim Baker's react resume template",
+  description: "Example site built with WaiYan's react resume template",
 };
 
 /**
@@ -67,18 +66,17 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `I'm Tim Baker.`,
+  name: `I'm K.Wai Yan.`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Victoria based <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently working
-        at <strong className="text-stone-100">Instant Domains</strong> helping build a modern, mobile-first, domain
-        registrar and site builder.
+        I'm a <strong className="text-stone-100">Japan-based Full-stack Web Developer</strong>, currently working at{' '}
+        <strong className="text-stone-100">Outward, Inc.</strong>, helping build scalable and maintainable web
+        applications using modern web technologies.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, you can catch me training in <strong className="text-stone-100">Muay Thai</strong>,
-        plucking my <strong className="text-stone-100">banjo</strong>, or exploring beautiful{' '}
-        <strong className="text-stone-100">Vancouver Island</strong>.
+        In my free time, you can catch me playing <strong className="text-stone-100">football</strong>, watching{' '}
+        <strong className="text-stone-100">UFC</strong>, or reading <strong className="text-stone-100">books</strong>.
       </p>
     </>
   ),
@@ -102,16 +100,14 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `Use this bio section as your way of describing yourself and saying what you do, what technologies you like
-  to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing
-  in.`,
+  description: `I build scalable and maintainable web applications using PHP (Laravel), Java, MySQL, React, and Next.js. Passionate about clean code, continuous learning, and solving real-world business challenges through technology.`,
   aboutItems: [
-    { label: 'Location', text: 'Victoria, BC', Icon: MapIcon },
-    { label: 'Age', text: '29', Icon: CalendarIcon },
-    { label: 'Nationality', text: 'Canadian / Irish', Icon: FlagIcon },
-    { label: 'Interests', text: 'Motorcycles, Muay Thai, Banjos', Icon: SparklesIcon },
-    { label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon },
-    { label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon },
+    { label: 'Location', text: 'Japan, Chiba', Icon: MapIcon },
+    { label: 'Age', text: '31', Icon: CalendarIcon },
+    { label: 'Nationality', text: 'Myanmar', Icon: FlagIcon },
+    { label: 'Interests', text: 'Football, UFC, Reading', Icon: SparklesIcon },
+    { label: 'Study', text: 'University of Yangon', Icon: AcademicCapIcon },
+    { label: 'Employment', text: 'Outward, Inc.', Icon: BuildingOffice2Icon },
   ],
 };
 
@@ -124,15 +120,15 @@ export const skills: SkillGroup[] = [
     skills: [
       {
         name: 'English',
+        level: 8,
+      },
+      {
+        name: 'Japanese',
+        level: 9,
+      },
+      {
+        name: 'Burmese',
         level: 10,
-      },
-      {
-        name: 'French',
-        level: 4,
-      },
-      {
-        name: 'Spanish',
-        level: 3,
       },
     ],
   },
@@ -141,15 +137,15 @@ export const skills: SkillGroup[] = [
     skills: [
       {
         name: 'React',
-        level: 9,
+        level: 7,
       },
       {
         name: 'Typescript',
         level: 7,
       },
       {
-        name: 'GraphQL',
-        level: 6,
+        name: 'Next.js',
+        level: 5,
       },
     ],
   },
@@ -157,34 +153,35 @@ export const skills: SkillGroup[] = [
     name: 'Backend development',
     skills: [
       {
+        name: 'PHP (Laravel)',
+        level: 9,
+      },
+      {
         name: 'Node.js',
-        level: 8,
+        level: 6,
       },
       {
-        name: 'Rust',
+        name: 'Java',
         level: 5,
-      },
-      {
-        name: 'Golang',
-        level: 4,
       },
     ],
   },
   {
-    name: 'Mobile development',
+    name: 'Cloud & DevOps',
     skills: [
       {
-        name: 'React Native',
+        name: 'Docker',
         level: 9,
       },
       {
-        name: 'Flutter',
-        level: 4,
+        name: 'Linux',
+        level: 8,
       },
       {
-        name: 'Swift',
-        level: 3,
+        name: 'AWS',
+        level: 7,
       },
+
     ],
   },
 ];
@@ -194,15 +191,15 @@ export const skills: SkillGroup[] = [
  */
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Project title 1',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Golf Club Fitting Management System',
+    description: 'Developed customer management, fitting history, authentication, and search features using PHP (Laravel) and MySQL while collaborating with an international development team.',
+    url: '#',
     image: porfolioImage1,
   },
   {
     title: 'Project title 2',
     description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    url: '#',
     image: porfolioImage2,
   },
   {
@@ -214,7 +211,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     title: 'Project title 4',
     description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    url: '#',
     image: porfolioImage4,
   },
   {
@@ -226,7 +223,7 @@ export const portfolioItems: PortfolioItem[] = [
   {
     title: 'Project title 6',
     description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    url: '#',
     image: porfolioImage6,
   },
   {
@@ -266,42 +263,31 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
-    date: 'April 2007',
-    location: 'Clown college',
-    title: 'Masters in Beer tasting',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'December 2010 - March 2017',
+    location: 'University of Yangon',
+    title: 'Master Degree in Zoology',
+    content: <p>My academic background provided me with hands-on experience in scientific research and laboratory work. For my master's thesis, I studied the toxicology of naturally occurring mercury in fish, strengthening my analytical thinking and research skills.</p>,
   },
   {
-    date: 'March 2003',
-    location: 'School of Business',
-    title: 'What did you study 101',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'April 2022 - March 2024',
+    location: '中央情報専門学校',
+    title: 'IT.Web 学科',
+    content: <p>Built a strong foundation in web development through hands-on projects using Java, HTML, CSS, JavaScript, and SQL. Also explored Python and introductory AI concepts while strengthening problem-solving and software development skills.</p>,
   },
 ];
 
 export const experience: TimelineItem[] = [
   {
-    date: 'March 2010 - Present',
-    location: 'Awesome Development Company',
-    title: 'Senior UX Engineer',
+    date: 'April 2024 - Present',
+    location: 'Outward, Inc.',
+    title: 'Junior Web Engineer',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+        Primarily working with PHP (Laravel) to build and maintain scalable web applications. Collaborating with senior developers and international team members to develop new features, resolve issues, and continuously improve application quality and performance.
       </p>
     ),
   },
-  {
-    date: 'March 2007 - February 2010',
-    location: 'Garage Startup Studio',
-    title: 'Junior bug fixer',
-    content: (
-      <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
-      </p>
-    ),
-  },
+
 ];
 
 /**
@@ -310,10 +296,31 @@ export const experience: TimelineItem[] = [
 export const blogSection: BlogSection = {
   blogs: [
     {
-      title: 'create to get who want to connect send email to this waiyan.toshima12@gmail.com add require and use backend use php pure',
-      description: 'A brief guide on setting up a pure PHP backend for sending connection emails.',
-      date: 'Recent',
+      title: 'Cookies & Sessions in PHP — Complete Guide for Developers',
+      description:
+        'Learn the differences between cookies and sessions in PHP, and see practical examples of how to use them effectively for user authentication and state management.',
+      date: 'Mar 23, 2026',
       url: 'https://medium.com/@waiyan.toshima12',
+      image: blogImage1,
+      tags: ['php', 'web dev'],
+    },
+    {
+      title: 'Complete Guide: Using AWS Features in Laravel (Beginner → Advanced)',
+      description:
+        'Discover how to leverage Amazon Web Services (AWS) in your Laravel applications. This guide covers everything from basic setup to advanced integrations.',
+      date: 'Mar 24, 2026',
+      url: 'https://medium.com/@waiyan.toshima12',
+      image: blogImage2,
+      tags: ['laravel', 'aws'],
+    },
+    {
+      title: '10 Most Useful PHP Functions Every Developer Should Know (With Practical Examples)',
+      description:
+        'Explore the top 10 essential PHP functions that will streamline your development workflow. Includes practical examples for string handling, array manipulation, and more.',
+      date: 'Mar 15, 2026',
+      url: 'https://medium.com/@waiyan.toshima12',
+      image: blogImage3,
+      tags: ['php', 'code'],
     },
   ],
 };
@@ -328,28 +335,19 @@ export const contact: ContactSection = {
   items: [
     {
       type: ContactType.Email,
-      text: 'reachout@timbaker.me',
-      href: 'mailto:reachout@timbaker.me',
+      text: 'waiyan.toshima12@gmail.com',
+      href: 'mailto:waiyan.toshima12@gmail.com',
     },
     {
       type: ContactType.Location,
-      text: 'Victoria BC, Canada',
-      href: 'https://www.google.ca/maps/place/Victoria,+BC/@48.4262362,-123.376775,14z',
+      text: 'Chiba, Japan',
+      href: 'https://www.google.com/maps/place/Chiba,+Japan',
     },
-    {
-      type: ContactType.Instagram,
-      text: '@tbakerx',
-      href: 'https://www.instagram.com/tbakerx/',
-    },
+
   ],
 };
 
 /**
  * Social items
  */
-export const socialLinks: Social[] = [
-  { label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users/8553186/tim-baker' },
-  { label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/timbakerx/' },
-  { label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/reactresume/' },
-  { label: 'Twitter', Icon: TwitterIcon, href: 'https://twitter.com/TimBakerx' },
-];
+export const socialLinks: Social[] = [];

@@ -106,6 +106,7 @@ export interface Blog {
   description: string;
   date: string;
   image?: string | StaticImageData;
+  tags?: string[];
 }
 
 /**

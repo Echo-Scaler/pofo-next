@@ -1,11 +1,23 @@
-import { FC, memo } from 'react';
+import {EllipsisVerticalIcon} from '@heroicons/react/24/outline';
+import Image, {StaticImageData} from 'next/image';
+import {FC, memo, useCallback, useState} from 'react';
 
-import { SectionId, blogSection } from '../../data/data';
-import { Blog } from '../../data/dataDef';
+import {blogSection, SectionId} from '../../data/data';
+import {Blog as BlogType} from '../../data/dataDef';
+import ImageModal from '../ImageModal';
 import Section from '../Layout/Section';
 
 const Blog: FC = memo(() => {
-  const { blogs } = blogSection;
+  const {blogs} = blogSection;
+  const [modalData, setModalData] = useState<{src: string | StaticImageData; alt: string} | null>(null);
+
+  const handleOpenModal = useCallback((src: string | StaticImageData, alt: string) => {
+    setModalData({src, alt});
+  }, []);
+
+  const handleCloseModal = useCallback(() => {
+    setModalData(null);
+  }, []);
 
   if (!blogs.length) {
     return null;
@@ -22,44 +34,66 @@ const Blog: FC = memo(() => {
         </div>
         <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog, index) => (
-            <BlogCard blog={blog} key={`${blog.title}-${index}`} />
+            <BlogCard blog={blog} key={`${blog.title}-${index}`} onImageClick={handleOpenModal} />
           ))}
         </div>
       </div>
+      <ImageModal
+        altText={modalData?.alt}
+        imageSrc={modalData?.src || null}
+        isOpen={!!modalData}
+        onClose={handleCloseModal}
+      />
     </Section>
   );
 });
 
-const BlogCard: FC<{ blog: Blog }> = memo(({ blog: { title, description, url, date, image } }) => {
-  return (
-    <div className="group flex flex-col overflow-hidden rounded-2xl bg-neutral-900 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-orange-500/20">
-      {image && (
-        <div className="relative h-48 w-full overflow-hidden">
-          <img alt={title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" src={typeof image === 'string' ? image : image.src} />
-        </div>
-      )}
-      <div className="flex flex-1 flex-col justify-between p-6">
-        <div className="flex flex-col gap-y-3">
-          <span className="text-xs font-semibold text-orange-500">{date}</span>
-          <h3 className="text-xl font-bold leading-snug text-white line-clamp-2" title={title}>{title}</h3>
-          <p className="text-sm text-neutral-400 line-clamp-3">{description}</p>
-        </div>
-        <div className="mt-6 flex items-center">
+const BlogCard: FC<{blog: BlogType; onImageClick?: (src: string | StaticImageData, alt: string) => void}> = memo(
+  ({blog: {title, description, url, date, image, tags}, onImageClick}) => {
+    return (
+      <div className="flex h-full flex-col overflow-hidden rounded-[2px] border border-neutral-200/60 bg-white shadow-sm transition-shadow hover:shadow-md">
+        {/* Top Image Area */}
+        <div
+          className="relative h-56 w-full cursor-pointer overflow-visible"
+          onClick={() => image && onImageClick?.(image, title)}>
+          {image && <Image alt={title} className="h-full w-full object-cover" fill placeholder="blur" src={image} />}
+          {/* FAB Button */}
           <a
-            className="inline-flex items-center gap-x-2 rounded-full bg-orange-500 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-neutral-900"
+            className="absolute -bottom-6 right-6 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-[#26a69a] text-white shadow-md transition-colors hover:bg-teal-600"
             href={url}
+            onClick={e => e.stopPropagation()}
             rel="noopener noreferrer"
-            target="_blank">
-            <span>Read on Medium</span>
-            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+            target="_blank"
+            title="Read on Medium">
+            <EllipsisVerticalIcon className="h-6 w-6" />
           </a>
         </div>
+
+        {/* Content Area */}
+        <div className="flex flex-1 flex-col p-6 pt-10">
+          <h3 className="mb-3 text-2xl font-light text-gray-800 line-clamp-2" title={title}>
+            {title}
+          </h3>
+          <p className="mb-6 text-sm font-light leading-relaxed text-gray-500 line-clamp-3">{description}</p>
+
+          {/* Footer Area */}
+          <div className="mt-auto flex items-center justify-between border-t border-gray-100 pt-4">
+            <div className="flex flex-wrap gap-2">
+              {tags?.map(tag => (
+                <span
+                  className="bg-[#f44336] px-2 py-0.5 text-[10px] font-medium uppercase text-white rounded-sm"
+                  key={tag}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <span className="text-xs font-medium text-gray-400">{date}</span>
+          </div>
+        </div>
       </div>
-    </div>
-  );
-});
+    );
+  },
+);
 
 Blog.displayName = 'Blog';
 export default Blog;
