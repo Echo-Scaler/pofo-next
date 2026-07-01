@@ -1,80 +1,110 @@
-# React JS Resume Website Template
+# Personal Portfolio & Resume Website (pofo-next)
 
-![ReactJS Resume Website Template](resume-screenshot.jpg?raw=true 'ReactJS Resume Website Template')
+A modern, responsive, and bilingual personal portfolio and resume website built with **Next.js 14**, **React 18**, **TypeScript**, and **Tailwind CSS**. Designed for performance, clean aesthetics, and seamless localization (English & Japanese).
 
-<div align="center">
+---
 
-<img alt="GitHub release (latest by date including pre-releases" src="https://img.shields.io/github/v/release/tbakerx/react-resume-template?include_prereleases">
+## ✨ Features
 
-<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/tbakerx/react-resume-template?style=flat">
+- 🌐 **Multi-Language Support:** Instant switching between English and Japanese via dedicated localization files and Context API.
+- 📱 **Fully Responsive:** Optimized for desktops, tablets, and mobile devices with smooth animations and touch-friendly navigation.
+- ⚡ **Next.js Powered:** Leverages Next.js for server-side rendering, static generation, and optimized asset loading.
+- 🎨 **Tailwind CSS Styling:** Modern typography, dynamic layouts, and utility-first styling for effortless customization.
+- 📄 **Resume Integration:** Integrated PDF resume download link with localized filenames.
 
-<img alt="GitHub Repo forks" src="https://img.shields.io/github/forks/tbakerx/react-resume-template?style=flat&color=success">
+---
 
-<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/tbakerx/react-resume-template?style=flat&color=yellow">
+## 🚀 Getting Started Locally
 
-<img alt="GitHub package.json dependency version (prod)" src="https://img.shields.io/github/package-json/dependency-version/tbakerx/react-resume-template/react?style=flat">
+### 1. Prerequisites
+Ensure you have installed stable versions of:
+- [Node.js](https://nodejs.org/en/) (v18 or v20 LTS recommended)
+- [Yarn](https://yarnpkg.com/) package manager
 
-<img alt="Github Repo Sponsors" src="https://img.shields.io/github/sponsors/tbakerx?style=flat&color=blueviolet">
+### 2. Install Dependencies
+Open a terminal in the project directory and run:
+```bash
+yarn install
+```
 
-## React based template for software developer-focused resume websites
+### 3. Run Development Server
+Start the local development server:
+```bash
+yarn dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-</div>
+---
 
-### View a [live demo here.](https://reactresume.com)
+## 🛠️ Customizing Your Content
 
-#### If this template has helped you and you'd like to support my work, feel free to [♥️ Sponsor](https://github.com/sponsors/tbakerx) the project
+All website content and text translations are centralized in `src/data/`:
+- **English Content:** Edit `src/data/data_en.tsx`
+- **Japanese Content:** Edit `src/data/data_ja.tsx`
+- **Shared Configuration & Types:** See `src/data/data.tsx` and `src/data/dataDef.ts`
 
-### 🎉 Version 2 is here! New features:
-1. Completely rebuilt with React and full typescript support
-2. Built on the [Next.js](https://nextjs.org/) framework for easy server side rendering/static generation, image optimization, api routes, and deployment
-3. Styled entirely with [TailwindCss](https://tailwindcss.com/)
-4. Re-organized data population file for customizing site.
-5. Significant improvement/modernization of all site sections
- 
-**Looking for the old version? You can find it [here.](https://github.com/tbakerx/react-resume-template/releases/tag/v1.0.0)**
+### Images & Assets
+- **Images:** Store portfolio screenshots, profile photos, and blog images in `src/images/` and import them directly in your data files.
+- **Resume PDF:** Place your downloadable resume PDF at `public/assets/resume.pdf`.
 
-## Description
+---
 
-This is a React based personal resume website template. Built with typescript on the Next.js framework, styled with Tailwind css, and populated with data from a single file, you can easily create, customize and host your own personal website in minutes. Even better, the site is fully mobile-optimized and server-side rendered to ensure fast loading and a clean UI on any device. Read on to learn how to make it your own.
+## 🌍 Deploying to DigitalOcean
 
-## Make it Your Own!
+This application is ready for production deployment on DigitalOcean. Choose the method that best fits your workflow:
 
-### 1. Make sure you have what you need
+### Method 1: DigitalOcean App Platform (Recommended & Easiest)
+DigitalOcean App Platform is a fully managed platform as a service (PaaS) that automatically builds and hosts your Next.js application from GitHub.
 
-To build this website, you will need to have the latest stable versions of Node and Yarn downloaded and installed on your machine. If you don't already have them, you can get Node [here,](https://nodejs.org/en/download/) and Yarn [here.](https://yarnpkg.com/getting-started/install)
+1. **Prepare for Production Image Optimization (Recommended):**
+   When deploying Next.js containers on Linux, installing `sharp` prevents CPU overload during image rendering:
+   ```bash
+   yarn add sharp
+   ```
+2. **Push to GitHub:**
+   Commit your changes and push the repository to your GitHub account.
+3. **Create an App in DigitalOcean:**
+   - Go to your DigitalOcean dashboard and select **App Platform** -> **Create App**.
+   - Connect your GitHub repository and select the branch you wish to deploy.
+4. **Configure Build Settings:**
+   Verify or apply the following build parameters:
+   - **Environment:** `Node.js`
+   - **Build Command:** `yarn build`
+   - **Run Command:** `yarn start`
+   - **HTTP Port:** `3000`
+5. **Set Environment Variables:**
+   Add the following environment variable under App Settings:
+   - `NODE_ENV` = `production`
+6. Click **Deploy App**. Once the build completes, DigitalOcean will provide your live URL!
 
-### 2. Fork and download this repo (and star if you like!)
+---
 
-Next, find the `Fork` button in the top right of this page. This will allow you to make your own copy, for more info on forking repo's see [here.](https://docs.github.com/en/get-started/quickstart/fork-a-repo#forking-a-repository) After this, download to your development machine using the green `Code` button at the top of the repo page.
+### Method 2: DigitalOcean Droplet (Ubuntu VPS / Linux Server)
+If you are deploying on an Ubuntu Droplet (virtual machine):
 
-### 3. Install dependencies and run
+1. **Install Node.js & Yarn:** Install Node.js (v18/20 LTS) and Yarn on your droplet.
+2. **Clone & Build:**
+   ```bash
+   git clone <your-repo-url>
+   cd react-pofo
+   yarn install
+   yarn build
+   ```
+3. **Run in the Background with PM2:**
+   Install PM2 globally to keep the Next.js process running continuously:
+   ```bash
+   npm install -g pm2
+   pm2 start yarn --name "react-pofo" -- start
+   pm2 save
+   pm2 startup
+   ```
+4. **Set Up Nginx Reverse Proxy:**
+   Configure Nginx to forward HTTP/HTTPS traffic from ports `80` and `443` to your application running locally on port `3000`.
+5. **SSL Certificate:**
+   Use Let's Encrypt (`certbot --nginx`) to enable free, automated HTTPS certificates.
 
-Once you have your own copy of this repo forked and downloaded, open the folder in your favorite terminal and run `yarn install` to install dependencies. Following this, run `yarn dev` to run the project. In your terminal you should be given the url of the running instance (usually http://localhost:3000 unless you have something else running).
+---
 
-### 4. Customize the data to make it your own
+## 📝 License
 
-All of the data for the site is driven via a file at `/src/data/data.tsx`. This is where you'll find the existing content, and updating the values here will be reflected on the site. If you have the site running as described above, you should see these changes reflected on save. The data types for all of these items are given in the same folder in the `dataDef.ts` file. Example images can be found at `src/images/` and are imported in the data file. To change, simply update these images using the same name and location, or add new images and update the imports. 
-
-### 5. Hook up contact form
-Due to the variety of options available for contact form providers, I've hooked up the contact form only so far as handling inputs and state. Form submission and the actual sending of the email is open to your own implementation. My personal recommendation for email provider is [Sendgrid.](https://sendgrid.com/)
-
-### 6. Make any other changes you like
-
-Of course, all of the code is there and nothing is hidden from you so if you would like to make any other styling/data changes, feel free!
-
-### 7. Deploy to Vercel and enjoy your new Resume Website
-
-Deploying your new site to Vercel is simple, and can be done by following their guide [here.](https://vercel.com/guides/deploying-nextjs-with-vercel) When you're all done and the build succeeds, you should be given a url for your live site, go there and you'll see your new personal resume website! Congratulations!
-
-## Project Created & Maintained By
-
-
-## Stargazers
-
-[![Stargazers repo roster for @tbakerx/react-resume-template](https://reporoster.com/stars/dark/tbakerx/react-resume-template)](https://github.com/tbakerx/react-resume-template/stargazers)
-
-## Forkers
-
-[![Forkers repo roster for @tbakerx/react-resume-template](https://reporoster.com/forks/dark/tbakerx/react-resume-template)](https://github.com/tbakerx/react-resume-template/network/members)
-
-# pofo-next
+This project is licensed under the MIT License.
