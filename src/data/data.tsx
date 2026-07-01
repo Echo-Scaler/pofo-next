@@ -13,10 +13,10 @@ import blogImage2 from '../images/blog/blog-2.png';
 import blogImage3 from '../images/blog/blog-3.png';
 import heroImage from '../images/header-background.webp';
 import porfolioImage1 from '../images/portfolio/miura-custom.png';
-import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
-import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
+import porfolioImage2 from '../images/portfolio/kirawai-custom.png';
+import porfolioImage3 from '../images/portfolio/otto-custom.png';
+import porfolioImage4 from '../images/portfolio/inance-custom.png';
+import porfolioImage5 from '../images/portfolio/hokkaido-custom.png';
 import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
 import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
 import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
@@ -197,27 +197,27 @@ export const portfolioItems: PortfolioItem[] = [
     image: porfolioImage1,
   },
   {
-    title: 'Project title 2',
-    description: 'Give a short description of your project here.',
+    title: 'Kirawai Online Store',
+    description: 'Developed a full-stack e-commerce platform using Laravel, Next.js, and MySQL, featuring authentication, RBAC, content management, and a loyalty & rewards system with well-defined business logic.',
     url: '#',
     image: porfolioImage2,
   },
   {
-    title: 'Project title 3',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'NISHISPO-CMS',
+    description: 'Developed core CMS features using PHP, jQuery, and MySQL, including photo uploads, AJAX forms, CSV export.',
+    url: '#',
     image: porfolioImage3,
   },
   {
-    title: 'Project title 4',
-    description: 'Give a short description of your project here.',
+    title: 'Employee Management',
+    description: 'Built employee scheduling, time tracking, task assignment, and reporting using PHP, and Bootstrap, with a focus on security.',
     url: '#',
     image: porfolioImage4,
   },
   {
-    title: 'Project title 5',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Hokkaido-CMS',
+    description: 'Built CMS features like advertisement management, media upload, and editor tools using PHP, jQuery, and MySQL.',
+    url: '#',
     image: porfolioImage5,
   },
   {
