@@ -1,8 +1,9 @@
 import {FC, memo} from 'react';
 
-import {socialLinks} from '../data/data';
+import {useData} from '../data/data';
 
 const Socials: FC = memo(() => {
+  const {socialLinks} = useData();
   return (
     <>
       {socialLinks.map(({label, Icon, href}) => (

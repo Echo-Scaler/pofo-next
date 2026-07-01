@@ -3,13 +3,16 @@ import Image, {StaticImageData} from 'next/image';
 import {FC, memo, MouseEvent, useCallback, useEffect, useRef, useState} from 'react';
 
 import {isMobile} from '../../config';
-import {portfolioItems, SectionId} from '../../data/data';
+import {useLanguage} from '../../context/LanguageContext';
+import {SectionId, useData} from '../../data/data';
 import {PortfolioItem} from '../../data/dataDef';
 import useDetectOutsideClick from '../../hooks/useDetectOutsideClick';
 import ImageModal from '../ImageModal';
 import Section from '../Layout/Section';
 
 const Portfolio: FC = memo(() => {
+  const {portfolioItems} = useData();
+  const {language} = useLanguage();
   const [modalData, setModalData] = useState<{src: string | StaticImageData; alt: string} | null>(null);
 
   const handleCloseModal = useCallback(() => {
@@ -20,9 +23,13 @@ const Portfolio: FC = memo(() => {
     <Section className="bg-neutral-900" sectionId={SectionId.Portfolio}>
       <div className="flex flex-col gap-y-12">
         <div className="flex flex-col items-center gap-y-4">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Recent Projects</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            {language === 'ja' ? '開発実績' : 'Recent Projects'}
+          </h2>
           <p className="max-w-2xl text-center text-lg text-neutral-400">
-            Here are a few of my recent projects. Hover over them to see the details.
+            {language === 'ja'
+              ? 'これまでに手がけたプロジェクトの一部です。ホバーまたはクリックで詳細をご確認いただけます。'
+              : 'Here are a few of my recent projects. Hover over them to see the details.'}
           </p>
         </div>
         <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-6">

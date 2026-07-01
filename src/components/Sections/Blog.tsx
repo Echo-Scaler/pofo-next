@@ -2,12 +2,15 @@ import {EllipsisVerticalIcon} from '@heroicons/react/24/outline';
 import Image, {StaticImageData} from 'next/image';
 import {FC, memo, useCallback, useState} from 'react';
 
-import {blogSection, SectionId} from '../../data/data';
+import {useLanguage} from '../../context/LanguageContext';
+import {SectionId, useData} from '../../data/data';
 import {Blog as BlogType} from '../../data/dataDef';
 import ImageModal from '../ImageModal';
 import Section from '../Layout/Section';
 
 const Blog: FC = memo(() => {
+  const {blogSection} = useData();
+  const {language} = useLanguage();
   const {blogs} = blogSection;
   const [modalData, setModalData] = useState<{src: string | StaticImageData; alt: string} | null>(null);
 
@@ -27,9 +30,13 @@ const Blog: FC = memo(() => {
     <Section className="bg-neutral-800" sectionId={SectionId.Blog}>
       <div className="flex flex-col gap-y-12">
         <div className="flex flex-col items-center gap-y-4">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Blog</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            {language === 'ja' ? 'ブログ' : 'Blog'}
+          </h2>
           <p className="max-w-2xl text-center text-lg text-neutral-400">
-            Check out some of my latest articles and thoughts.
+            {language === 'ja'
+              ? '最新の記事や知見を共有しています。'
+              : 'Check out some of my latest articles and thoughts.'}
           </p>
         </div>
         <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">

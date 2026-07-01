@@ -4,8 +4,10 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import {FC, Fragment, memo, useCallback, useMemo, useState} from 'react';
 
+import {useLanguage} from '../../context/LanguageContext';
 import {SectionId} from '../../data/data';
 import {useNavObserver} from '../../hooks/useNavObserver';
+import LanguageSwitcher from '../LanguageSwitcher';
 
 export const headerID = 'headerNav';
 
@@ -38,7 +40,7 @@ const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null
     const inactiveClass = classNames(baseClass, 'text-neutral-100');
     return (
       <header className="fixed top-0 z-50 hidden w-full bg-neutral-900/50 p-4 backdrop-blur sm:block" id={headerID}>
-        <nav className="flex justify-center gap-x-8">
+        <nav className="flex items-center justify-center gap-x-8">
           {navSections.map(section => (
             <NavItem
               activeClass={activeClass}
@@ -48,6 +50,7 @@ const DesktopNav: FC<{navSections: SectionId[]; currentSection: SectionId | null
               section={section}
             />
           ))}
+          <LanguageSwitcher />
         </nav>
       </header>
     );
@@ -68,6 +71,9 @@ const MobileNav: FC<{navSections: SectionId[]; currentSection: SectionId | null}
     const inactiveClass = classNames(baseClass, 'text-neutral-200 font-medium');
     return (
       <>
+        <div className="fixed left-2 top-2 z-40 sm:hidden">
+          <LanguageSwitcher />
+        </div>
         <button
           aria-label="Menu Button"
           className="fixed right-2 top-2 z-40 rounded-md bg-orange-500 p-2 ring-offset-gray-800/60 hover:bg-orange-400 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 sm:hidden"
@@ -124,13 +130,24 @@ const NavItem: FC<{
   inactiveClass: string;
   onClick?: () => void;
 }> = memo(({section, current, inactiveClass, activeClass, onClick}) => {
+  const {language} = useLanguage();
+  const labelMapJa: Record<string, string> = {
+    about: '自己紹介',
+    resume: '経歴・スキル',
+    portfolio: '開発実績',
+    blog: 'ブログ',
+    contact: 'お問い合わせ',
+  };
+  const label =
+    language === 'ja' ? labelMapJa[section] || section : section === 'portfolio' ? 'Recent Projects' : section;
+
   return (
     <Link
       className={classNames(current ? activeClass : inactiveClass)}
       href={`/#${section}`}
       key={section}
       onClick={onClick}>
-      {section === 'portfolio' ? 'Recent Projects' : section}
+      {label}
     </Link>
   );
 });

@@ -1,5 +1,7 @@
 import {FC, memo, useCallback, useMemo, useState} from 'react';
 
+import {useLanguage} from '../../../context/LanguageContext';
+
 interface FormData {
   name: string;
   email: string;
@@ -7,6 +9,7 @@ interface FormData {
 }
 
 const ContactForm: FC = memo(() => {
+  const {language} = useLanguage();
   const defaultData = useMemo(
     () => ({
       name: '',
@@ -45,13 +48,20 @@ const ContactForm: FC = memo(() => {
 
   return (
     <form className="grid min-h-[320px] grid-cols-1 gap-y-4" method="POST" onSubmit={handleSendMessage}>
-      <input className={inputClasses} name="name" onChange={onChange} placeholder="Name" required type="text" />
+      <input
+        className={inputClasses}
+        name="name"
+        onChange={onChange}
+        placeholder={language === 'ja' ? 'お名前' : 'Name'}
+        required
+        type="text"
+      />
       <input
         autoComplete="email"
         className={inputClasses}
         name="email"
         onChange={onChange}
-        placeholder="Email"
+        placeholder={language === 'ja' ? 'メールアドレス' : 'Email'}
         required
         type="email"
       />
@@ -60,7 +70,7 @@ const ContactForm: FC = memo(() => {
         maxLength={250}
         name="message"
         onChange={onChange}
-        placeholder="Message"
+        placeholder={language === 'ja' ? 'メッセージ内容' : 'Message'}
         required
         rows={6}
       />
@@ -68,7 +78,7 @@ const ContactForm: FC = memo(() => {
         aria-label="Submit contact form"
         className="w-max rounded-full border-2 border-orange-600 bg-stone-900 px-4 py-2 text-sm font-medium text-white shadow-md outline-none hover:bg-stone-800 focus:ring-2 focus:ring-orange-600 focus:ring-offset-2 focus:ring-offset-stone-800"
         type="submit">
-        Send Message
+        {language === 'ja' ? '送信する' : 'Send Message'}
       </button>
     </form>
   );
