@@ -41,8 +41,8 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'React Resume Template',
-  description: "Example site built with WaiYan's react resume template",
+  title: "K.Wai Yan's Portfolio",
+  description: "K.Wai Yan - Full Stack Developer",
 };
 
 /**
@@ -103,12 +103,12 @@ export const aboutData: About = {
   profileImageSrc: profilepic,
   description: `PHP (Laravel)、Java、MySQL、React、Next.js を用いた、スケーラブルで保守性の高い Web アプリケーションの構築を専門としています。クリーンで高品質なコードの記述、継続的な技術習得、そしてテクノロジーを通じてビジネス上の課題を解決することに情熱を注いでいます。`,
   aboutItems: [
-    {label: '所在地', text: '千葉県', Icon: MapIcon},
-    {label: '年齢', text: '31歳', Icon: CalendarIcon},
-    {label: '国籍', text: 'ミャンマー', Icon: FlagIcon},
-    {label: '趣味', text: 'サッカー、UFC観戦、読書', Icon: SparklesIcon},
-    {label: '学歴', text: 'ヤンゴン大学', Icon: AcademicCapIcon},
-    {label: '所属', text: '株式会社アウトワード', Icon: BuildingOffice2Icon},
+    { label: '所在地', text: '千葉県', Icon: MapIcon },
+    { label: '年齢', text: '31歳', Icon: CalendarIcon },
+    { label: '国籍', text: 'ミャンマー', Icon: FlagIcon },
+    { label: '趣味', text: 'サッカー、UFC観戦、読書', Icon: SparklesIcon },
+    { label: '学歴', text: 'ヤンゴン大学', Icon: AcademicCapIcon },
+    { label: '所属', text: '株式会社アウトワード', Icon: BuildingOffice2Icon },
   ],
 };
 
@@ -205,7 +205,7 @@ export const portfolioItems: PortfolioItem[] = [
     image: porfolioImage2,
   },
   {
-    title: 'NISHISPO-CMS',
+    title: 'Nishispo-CMS',
     description:
       'PHP、jQuery、MySQL を活用し、画像アップロード、AJAX フォーム、CSV エクスポート機能などの主要な CMS 機能を開発。',
     url: '#',
@@ -233,31 +233,31 @@ export const portfolioItems: PortfolioItem[] = [
   {
     title: 'プロジェクト 7',
     description: 'プロジェクトの概要をここに記述します。',
-    url: 'https://reactresume.com',
+    url: '#',
     image: porfolioImage7,
   },
   {
     title: 'プロジェクト 8',
     description: 'プロジェクトの概要をここに記述します。',
-    url: 'https://reactresume.com',
+    url: '#',
     image: porfolioImage8,
   },
   {
     title: 'プロジェクト 9',
     description: 'プロジェクトの概要をここに記述します。',
-    url: 'https://reactresume.com',
+    url: '#',
     image: porfolioImage9,
   },
   {
     title: 'プロジェクト 10',
     description: 'プロジェクトの概要をここに記述します。',
-    url: 'https://reactresume.com',
+    url: '#',
     image: porfolioImage10,
   },
   {
     title: 'プロジェクト 11',
     description: 'プロジェクトの概要をここに記述します。',
-    url: 'https://reactresume.com',
+    url: '#',
     image: porfolioImage11,
   },
 ];
